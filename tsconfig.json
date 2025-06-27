@@ -4,5 +4,5 @@
     "module": "commonjs", 
     "sourceMap": true 
   },
-  "files": ["exercise3.ts"]
+  "files": ["exercise4.ts"]
 }

@@ -14,8 +14,13 @@ class Employee {
     }
     work() {
         const currentTask = this.tasks.shift();
-        this.tasks.push(currentTask);
-        console.log(this.name + currentTask);
+        if (currentTask !== undefined) {
+            this.tasks.push(currentTask);
+            console.log(this.name + currentTask);
+        }
+        else {
+            console.log(`No task detected for ${this.name}`);
+        }
     }
     collectSalary() {
         console.log(`${this.name} received ${this.getSalary()} this month`);
@@ -36,7 +41,7 @@ exports.Junior = Junior;
 class Senior extends Employee {
     constructor(name, age) {
         super(name, age);
-        this.tasks.push(" is working on a complicate task");
+        this.tasks.push(" is working on a complicated task");
         this.tasks.push(" is taking time off work");
         this.tasks.push(" is supervising junior workers");
     }
@@ -48,7 +53,7 @@ class Manager extends Employee {
     constructor(name, age) {
         super(name, age);
         this.divident = 0;
-        this.tasks.push(" sheduled a meeting");
+        this.tasks.push(" scheduled a meeting");
         this.tasks.push(" is preparing a quarterly meeting");
     }
     getSalary() {
