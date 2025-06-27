@@ -12,9 +12,6 @@ class Melon {
 ;
 class Watermelon extends Melon {
     element = 'Water';
-    constructor(weight, melonSort) {
-        super(weight, melonSort);
-    }
     toString() {
         const melonInfo = {
             Element: this.element,
@@ -30,9 +27,6 @@ class Watermelon extends Melon {
 }
 class Firemelon extends Melon {
     element = 'Fire';
-    constructor(weight, melonSort) {
-        super(weight, melonSort);
-    }
     toString() {
         const melonInfo = {
             Element: this.element,
@@ -48,9 +42,6 @@ class Firemelon extends Melon {
 }
 class Earthmelon extends Melon {
     element = 'Earth';
-    constructor(weight, melonSort) {
-        super(weight, melonSort);
-    }
     toString() {
         const melonInfo = {
             Element: this.element,
@@ -66,9 +57,6 @@ class Earthmelon extends Melon {
 }
 class Airmelon extends Melon {
     element = 'Air';
-    constructor(weight, melonSort) {
-        super(weight, melonSort);
-    }
     toString() {
         const melonInfo = {
             Element: this.element,
@@ -82,6 +70,20 @@ class Airmelon extends Melon {
         return result.trim();
     }
 }
+class Melolemonmelon extends Watermelon {
+    elements = ['Water', 'Fire', 'Earth', 'Air'];
+    morph() {
+        const toReplace = this.elements.shift();
+        this.elements.push(toReplace);
+        this.element = this.elements[0];
+    }
+}
 let watermelon = new Watermelon(12.5, "Kingsize");
 console.log(watermelon.toString());
+let morphedMelon = new Melolemonmelon(12.5, 'Kingsize');
+console.log(morphedMelon.element);
+morphedMelon.morph();
+console.log(morphedMelon.toString());
+morphedMelon.morph();
+console.log(morphedMelon.toString());
 //# sourceMappingURL=exercise4.js.map

@@ -20,9 +20,6 @@ abstract class Melon {
 
 class Watermelon extends Melon {
     public element: string = 'Water';
-    constructor(weight: number, melonSort: string){
-        super(weight, melonSort);
-    }
     toString(): string {
         const melonInfo: Elemelons = {
             Element: this.element,
@@ -39,9 +36,6 @@ class Watermelon extends Melon {
 
 class Firemelon extends Melon {
     public element: string = 'Fire';
-    constructor(weight: number, melonSort: string){
-        super(weight, melonSort);
-    }
     toString(): string {
         const melonInfo: Elemelons = {
             Element: this.element,
@@ -58,9 +52,6 @@ class Firemelon extends Melon {
 
 class Earthmelon extends Melon {
     public element: string = 'Earth';
-    constructor(weight: number, melonSort: string){
-        super(weight, melonSort);
-    }
     toString(): string {
         const melonInfo: Elemelons = {
             Element: this.element,
@@ -77,9 +68,6 @@ class Earthmelon extends Melon {
 
 class Airmelon extends Melon {
     public element: string = 'Air';
-    constructor(weight: number, melonSort: string){
-        super(weight, melonSort);
-    }
     toString(): string {
         const melonInfo: Elemelons = {
             Element: this.element,
@@ -94,5 +82,20 @@ class Airmelon extends Melon {
     }
 }
 
+class Melolemonmelon extends Watermelon {
+    private elements: string[] = ['Water', 'Fire', 'Earth', 'Air'];
+    morph(): void {
+        const toReplace: string = this.elements.shift();
+        this.elements.push(toReplace);
+        this.element = this.elements[0];
+    }
+}
+
 let watermelon: Watermelon = new Watermelon(12.5, "Kingsize");
 console.log(watermelon.toString());
+let morphedMelon: Melolemonmelon = new Melolemonmelon(12.5, 'Kingsize');
+console.log(morphedMelon.element);
+morphedMelon.morph();
+console.log(morphedMelon.toString());
+morphedMelon.morph();
+console.log(morphedMelon.toString());
